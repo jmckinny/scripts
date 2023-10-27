@@ -3,7 +3,7 @@ set -eu
 IMPORTANT_BRANCHES='main|develop|master'
 CURRENT_BRANCH=$(git branch --show-current | sed 's/^*/ /')
 
-if echo $CURRENT_BRANCH | grep -qvE $IMPORTANT_BRANCHES; then
+if echo "$CURRENT_BRANCH" | grep -qvE $IMPORTANT_BRANCHES; then
     read -r -p "Are you sure you want to prune on branch '$CURRENT_BRANCH'? [y/N] " response
     if [[ ! "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then 
         echo "Aborting"
