@@ -4,7 +4,7 @@
  
 SESSION_NAME=$1
 if [ -z "$SESSION_NAME" ]; then
-    SESSION_NAME='^main|^0}'
+    SESSION_NAME='^main|^0'
 fi
  
 ACTIVE_SESSION=$(tmux ls | grep -Ei "$SESSION_NAME" | cut -d':' -f 1)
